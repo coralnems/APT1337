@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Agency Mission Planner</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+</head>
+<body>
+    <!-- Government usage warning popup -->
+    <div id="gov-warning" class="warning-popup">
+        <div class="warning-content">
+            <h2>RESTRICTED ACCESS</h2>
+            <p>This system is for official government use only. Unauthorized access is prohibited and may result in criminal prosecution.</p>
+            <p>All activities are logged and monitored in accordance with federal regulations.</p>
+            <button id="acknowledge-btn">I Acknowledge</button>
+        </div>
+    </div>
+    
+    <div id="app">
+        <header>
+            <div class="logo">Multi-Agency Mission Planner</div>
+            <div class="user-info">
+                <span id="current-user">Not logged in</span>
+                <span id="current-agency"></span>
+                <button id="logout-btn" style="display: none;">Logout</button>
+            </div>
+        </header>
+        
+        <div class="container">
+            <div id="login-panel" class="panel">
+                <h2>Agency Login</h2>
+                <div class="agency-logos">
+                    <img src="public/images/logos/police.png" alt="Police Department" data-agency="police" class="agency-logo">
+                    <img src="public/images/logos/homeland.png" alt="Homeland Security" data-agency="homeland" class="agency-logo">
+                    <img src="public/images/logos/marshals.png" alt="US Marshals" data-agency="marshals" class="agency-logo">
+                    <img src="public/images/logos/fbi.png" alt="FBI" data-agency="fbi" class="agency-logo">
+                    <img src="public/images/logos/dea.png" alt="DEA" data-agency="dea" class="agency-logo">
+                </div>
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="agency">Agency:</label>
+                        <select id="agency" required>
+                            <option value="police">Police Department</option>
+                            <option value="homeland">Homeland Security</option>
+                            <option value="marshals">US Marshals</option>
+                            <option value="fbi">FBI</option>
+                            <option value="dea">DEA</option>
+                        </select>
+                    </div>
+                    <button type="submit">Login</button>
+                </form>
+            </div>
+            
+            <div id="dashboard" class="panel" style="display: none;">
+                <div class="sidebar">
+                    <div class="agency-logo-container">
+                        <img id="current-agency-logo" src="" alt="Agency Logo">
+                    </div>
+                    <nav>
+                        <ul>
+                            <li data-tab="missions" class="active">Active Missions</li>
+                            <li data-tab="planning">Mission Planning</li>
+                            <li data-tab="map">Map View</li>
+                            <li data-tab="comms">Communications</li>
+                            <li data-tab="resources">Resources</li>
+                            <li data-tab="reports">Reports</li>
+                        </ul>
+                    </nav>
+                    <div class="collaborating-agencies">
+                        <h4>Collaborating Agencies</h4>
+                        <div id="collab-agency-logos">
+                            <!-- Logos will be populated dynamically -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content">
+                    <div id="missions" class="tab-content active">
+                        <h2>Active Missions</h2>
+                        <div class="mission-list" id="active-missions">
+                            <!-- Mission list will be populated dynamically -->
+                        </div>
+                        <button id="create-mission">Create New Mission</button>
+                    </div>
+                    
+                    <div id="planning" class="tab-content">
+                        <h2>Mission Planning</h2>
+                        <div id="planning-tools">
+                            <div class="tool-section">
+                                <h3>Create Mission Plan</h3>
+                                <form id="mission-form">
+                                    <div class="form-group">
+                                        <label for="mission-name">Mission Name:</label>
+                                        <input type="text" id="mission-name" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="mission-desc">Description:</label>
+                                        <textarea id="mission-desc" required></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="mission-agencies">Participating Agencies:</label>
+                                        <select id="mission-agencies" multiple>
+                                            <option value="police">Police Department</option>
+                                            <option value="homeland">Homeland Security</option>
+                                            <option value="marshals">US Marshals</option>
+                                            <option value="fbi">FBI</option>
+                                            <option value="dea">DEA</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Timeline:</label>
+                                        <input type="datetime-local" id="mission-start">
+                                        <input type="datetime-local" id="mission-end">
+                                    </div>
+                                    <button type="submit">Save Mission</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="map" class="tab-content">
+                        <h2>Map View</h2>
+                        <div id="mission-map"></div>
+                        <div id="map-controls">
+                            <button id="add-marker">Add Point</button>
+                            <button id="add-route">Add Route</button>
+                            <button id="add-area">Add Area</button>
+                            <button id="save-map">Save</button>
+                        </div>
+                    </div>
+                    
+                    <div id="comms" class="tab-content">
+                        <h2>Communications</h2>
+                        <div class="comms-container">
+                            <div class="message-list" id="message-area">
+                                <!-- Messages will appear here -->
+                            </div>
+                            <div class="message-input">
+                                <textarea id="new-message" placeholder="Type your message here..."></textarea>
+                                <button id="send-message">Send</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="resources" class="tab-content">
+                        <h2>Resources</h2>
+                        <div class="resources-panel">
+                            <div class="resource-list">
+                                <h3>Available Personnel</h3>
+                                <ul id="personnel-list">
+                                    <!-- Will be populated dynamically -->
+                                </ul>
+                            </div>
+                            <div class="resource-list">
+                                <h3>Available Equipment</h3>
+                                <ul id="equipment-list">
+                                    <!-- Will be populated dynamically -->
+                                </ul>
+                            </div>
+                            <div class="resource-list">
+                                <h3>Vehicles</h3>
+                                <ul id="vehicle-list">
+                                    <!-- Will be populated dynamically -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="reports" class="tab-content">
+                        <h2>Reports</h2>
+                        <div class="reports-container">
+                            <div class="report-controls">
+                                <select id="report-type">
+                                    <option value="incident">Incident Report</option>
+                                    <option value="activity">Activity Log</option>
+                                    <option value="resource">Resource Allocation</option>
+                                </select>
+                                <button id="generate-report">Generate Report</button>
+                            </div>
+                            <div id="report-output">
+                                <!-- Generated reports will appear here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/comms.js"></script>
+    <script src="js/logos.js"></script>
+</body>
+</html>

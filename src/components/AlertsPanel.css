@@ -1,0 +1,121 @@
+.alerts-panel {
+  background-color: #2c3e50;
+  border-radius: 8px;
+  padding: 15px;
+  color: white;
+}
+
+.alerts-panel h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+.alerts-controls {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.filter-buttons {
+  display: flex;
+}
+
+.filter-buttons button {
+  background-color: #34495e;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  cursor: pointer;
+}
+
+.filter-buttons button:first-child {
+  border-radius: 4px 0 0 4px;
+}
+
+.filter-buttons button:last-child {
+  border-radius: 0 4px 4px 0;
+}
+
+.filter-buttons button.active {
+  background-color: #3498db;
+}
+
+.clear-button {
+  background-color: #7f8c8d;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.alerts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.alert-item {
+  display: flex;
+  align-items: center;
+  background-color: #34495e;
+  border-radius: 6px;
+  padding: 12px;
+  transition: background-color 0.2s;
+}
+
+.alert-item:hover {
+  background-color: #2c3e50;
+}
+
+.alert-item.error {
+  border-left: 4px solid #e74c3c;
+}
+
+.alert-item.warning {
+  border-left: 4px solid #f39c12;
+}
+
+.alert-item.info {
+  border-left: 4px solid #3498db;
+}
+
+.alert-icon {
+  margin-right: 12px;
+  font-size: 1.2rem;
+}
+
+.alert-content {
+  flex: 1;
+}
+
+.alert-message {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.alert-timestamp {
+  font-size: 0.8rem;
+  color: #95a5a6;
+}
+
+.dismiss-button {
+  background: none;
+  border: none;
+  color: #95a5a6;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.dismiss-button:hover {
+  color: white;
+}
+
+.no-alerts {
+  padding: 20px;
+  text-align: center;
+  color: #95a5a6;
+}

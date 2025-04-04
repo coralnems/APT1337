@@ -1,0 +1,62 @@
+.autonomous-navigation {
+  padding: 16px;
+}
+
+.nav-controls {
+  margin-top: 16px;
+}
+
+.grid-preview {
+  margin-top: 16px;
+  background-color: #eaf5fe;
+  height: 150px;
+  border-radius: 4px;
+  border: 1px solid #c2e0ff;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(to right, rgba(0,0,0,0.1) 1px, transparent 1px), 
+                    linear-gradient(to bottom, rgba(0,0,0,0.1) 1px, transparent 1px);
+  background-size: 10% 10%;
+}
+
+.thermal-preview {
+  margin-top: 16px;
+  height: 30px;
+  width: 100%;
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.thermal-gradient {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, 
+    rgb(0,0,255),    /* Cold - Blue */
+    rgb(50,150,255), /* Cool - Light Blue */
+    rgb(100,255,100),/* Neutral - Green */
+    rgb(255,200,50), /* Warm - Yellow */
+    rgb(255,100,50), /* Hot - Orange */
+    rgb(255,0,0)     /* Very Hot - Red */
+  );
+}
+
+.thermal-threshold {
+  position: absolute;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  background-color: white;
+  box-shadow: 0 0 4px rgba(0,0,0,0.5);
+}

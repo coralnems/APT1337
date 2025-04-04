@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="3D Visualization Platform with DJI Drone Control"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    
+    <!-- Preload critical assets -->
+    <link rel="preload" href="%PUBLIC_URL%/static/css/main.css" as="style" />
+    <link rel="preload" href="%PUBLIC_URL%/static/js/main.js" as="script" />
+    <link rel="preload" href="%PUBLIC_URL%/static/js/vendor.js" as="script" />
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" as="style" />
+    <link rel="preload" href="https://fonts.googleapis.com/icon?family=Material+Icons" as="style" />
+    
+    <!-- After preloading, load the actual resources -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <title>3D Visualization Platform</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Roboto, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      
+      #root {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      /* Progressive loading styles */
+      .content-placeholder {
+        background: #f0f0f0;
+        height: 400px;
+        animation: pulse 1.5s infinite;
+      }
+
+      @keyframes pulse {
+        0% { opacity: 0.6; }
+        50% { opacity: 0.8; }
+        100% { opacity: 0.6; }
+      }
+    </style>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+    <!-- Add this before the closing </body> tag -->
+    <!-- DJI SDK integration - Replace with actual SDK URL when available -->
+    <script>
+      // Mock DJI SDK for development
+      window.DJI = window.DJI || {
+        init: function(options) {
+          console.log('Mock DJI SDK initialized');
+          setTimeout(() => {
+            if (options.onSuccess) options.onSuccess();
+          }, 1000);
+        },
+        takeOff: function(options) {
+          console.log('Mock takeoff command');
+          setTimeout(() => {
+            if (options.onSuccess) options.onSuccess();
+          }, 2000);
+        },
+        land: function(options) {
+          console.log('Mock landing command');
+          setTimeout(() => {
+            if (options.onSuccess) options.onSuccess();
+          }, 2000);
+        },
+        move: function(params, options) {
+          console.log('Mock move command:', params);
+          setTimeout(() => {
+            if (options.onSuccess) options.onSuccess();
+          }, 500);
+        },
+        virtualStick: function(params) {
+          console.log('Mock virtual stick:', params);
+          return true;
+        },
+        getTelemetryData: function(callback) {
+          // Generate mock telemetry data
+          callback({
+            position: {
+              latitude: 37.7749 + (Math.random() - 0.5) * 0.001,
+              longitude: -122.4194 + (Math.random() - 0.5) * 0.001,
+              altitude: 50 + (Math.random() - 0.5) * 5
+            },
+            attitude: {
+              pitch: (Math.random() - 0.5) * 20,
+              roll: (Math.random() - 0.5) * 20,
+              yaw: Math.random() * 360
+            },
+            speed: {
+              horizontal: Math.random() * 10,
+              vertical: (Math.random() - 0.5) * 2
+            },
+            battery: {
+              percentage: 80 - Math.random() * 10,
+              voltage: 11.1 + Math.random() * 0.5
+            }
+          });
+        }
+      };
+    </script>
+  </body>
+</html>

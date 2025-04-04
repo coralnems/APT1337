@@ -1,0 +1,232 @@
+.video-feed-container {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.video-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.video-options {
+  display: flex;
+  margin-bottom: 12px;
+}
+
+.video-display {
+  flex-grow: 1;
+  position: relative;
+  overflow: hidden;
+  background-color: #000;
+  border-radius: 4px;
+}
+
+.video-placeholder {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  min-height: 300px;
+}
+
+.main {
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url('../images/drone-view.jpg') center/cover;
+}
+
+.drone-camera-feed {
+  background-color: #3a3a3a;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.thermal-camera-feed {
+  background-color: #202040;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wide-angle-feed {
+  background-color: #404020;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.zoom-camera-feed {
+  background-color: #204020;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.drone-view {
+  background-image: url('../images/drone-view.jpg');
+}
+
+.drone-feed {
+  background-image: none; /* instead of url('../images/drone-view.jpg') */
+  background-size: cover;
+  background-position: center;
+}
+
+.thermal {
+  background: url('../images/thermal-view.jpg') center/cover;
+  filter: hue-rotate(180deg) saturate(2);
+}
+
+.thermal-view {
+  background-image: url('../images/thermal-view.jpg');
+}
+
+.thermal-feed {
+  background-image: none; /* instead of url('../images/thermal-view.jpg') */
+  background-size: cover;
+  background-position: center;
+}
+
+.wide {
+  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('../images/wide-view.jpg') center/cover;
+}
+
+.wide-view {
+  background-image: url('../images/wide-view.jpg');
+}
+
+.wide-feed {
+  background-image: none; /* instead of url('../images/wide-view.jpg') */
+  background-size: cover;
+  background-position: center;
+}
+
+.zoom {
+  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('../images/zoom-view.jpg') center/cover;
+}
+
+.zoom-view {
+  background-image: url('../images/zoom-view.jpg');
+}
+
+.zoom-feed {
+  background-image: none; /* instead of url('../images/zoom-view.jpg') */
+  background-size: cover;
+  background-position: center;
+}
+
+.thermal-overlay:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, 
+    rgba(255,0,0,0.2), 
+    rgba(255,165,0,0.2), 
+    rgba(255,255,0,0.2), 
+    rgba(0,255,0,0.2)
+  );
+  mix-blend-mode: color;
+  pointer-events: none;
+}
+
+.video-status {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.recording-indicator {
+  background-color: red;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0.5; }
+}
+
+.camera-info {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+.telemetry-overlay {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.detection-box {
+  position: absolute;
+  border: 2px solid rgb(0, 255, 0);
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+.detection-label {
+  position: absolute;
+  top: -20px;
+  left: 0;
+  background-color: rgb(0, 255, 0);
+  color: black;
+  padding: 1px 4px;
+  font-size: 0.7rem;
+  white-space: nowrap;
+}
+
+.crosshair {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30px;
+  height: 30px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.crosshair-h,
+.crosshair-v {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.crosshair-h {
+  width: 100%;
+  height: 1px;
+  top: 50%;
+}
+
+.crosshair-v {
+  width: 1px;
+  height: 100%;
+  left: 50%;
+}

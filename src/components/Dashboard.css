@@ -1,0 +1,169 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #1a1a2e;
+  color: #f0f0f0;
+}
+
+.dashboard-header {
+  background-color: #16213e;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #0f3460;
+  margin-bottom: 24px;
+}
+
+.dashboard-header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.system-status {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.status-badge {
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.status-badge.online {
+  background-color: #27ae60;
+}
+
+.status-badge.offline {
+  background-color: #e74c3c;
+}
+
+.battery-level, .signal-strength {
+  font-size: 0.9rem;
+}
+
+.dashboard-container {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  background-color: #f7f9fc;
+  padding: 16px;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #16213e;
+  border-right: 1px solid #0f3460;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  padding: 12px 20px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.sidebar li:hover {
+  background-color: #0f3460;
+}
+
+.sidebar li.active {
+  background-color: #e94560;
+  font-weight: bold;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.quick-actions {
+  margin-top: 30px;
+  padding: 0 20px;
+}
+
+.quick-actions h3 {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.action-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #0f3460;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.action-button:hover {
+  background-color: #e94560;
+}
+
+.action-button.emergency {
+  background-color: #e74c3c;
+  font-weight: bold;
+}
+
+.action-button.emergency:hover {
+  background-color: #c0392b;
+}
+
+.mission-status {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: white;
+  margin-left: 8px;
+}
+
+.mission-active {
+  background-color: #4caf50;
+}
+
+.mission-standby {
+  background-color: #ff9800;
+}
+
+.dashboard-card {
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+  background-color: rgba(25, 118, 210, 0.08);
+  padding: 12px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.emergency-controls {
+  margin-top: 16px;
+  padding: 16px;
+  background-color: #fff3e0;
+  border: 1px dashed #ff9800;
+  border-radius: 8px;
+}

@@ -1,0 +1,60 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+/* Fix for canvas in Safari */
+canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Make sure images don't overflow their containers */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Fix for mobile responsiveness */
+@media (max-width: 600px) {
+  .MuiToolbar-root {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .MuiToolbar-root .MuiButton-root {
+    margin: 4px;
+    font-size: 0.75rem;
+    padding: 4px 8px;
+  }
+
+  .MuiTypography-h6 {
+    font-size: 1rem;
+  }
+}
+
+/* Improve accessibility */
+:focus-visible {
+  outline: 2px solid #1976d2;
+  outline-offset: 2px;
+}
+
+/* Fix for scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Improved button hover states */
+button:hover {
+  transform: translateY(-1px);
+  transition: transform 0.2s ease;
+}

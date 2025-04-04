@@ -1,0 +1,52 @@
+.control-mode-selector {
+  margin-top: 30px;
+  padding: 0 20px;
+}
+
+.control-mode-selector h3 {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.mode-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mode-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #0f3460;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.mode-item:hover {
+  background-color: #1a4575;
+}
+
+.mode-item.active {
+  background-color: #2980b9;
+}
+
+.mode-icon {
+  margin-right: 10px;
+  font-size: 1.2rem;
+}
+
+.mode-info {
+  flex: 1;
+}
+
+.mode-name {
+  font-weight: bold;
+}
+
+.mode-description {
+  font-size: 0.8rem;
+  margin-top: 5px;
+  color: #ddd;
+}

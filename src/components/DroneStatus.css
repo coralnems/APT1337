@@ -1,0 +1,57 @@
+.drone-status-container {
+  padding: 12px;
+}
+
+.status-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.status-label {
+  width: 100px;
+  font-weight: 500;
+}
+
+.status-value {
+  flex-grow: 1;
+}
+
+.drone-status-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.drone-id {
+  font-size: 0.75rem;
+  color: #666;
+}
+
+.signal-strength {
+  display: flex;
+  align-items: center;
+}
+
+.signal-bar {
+  width: 4px;
+  margin-right: 2px;
+  border-radius: 2px;
+}
+
+.signal-excellent .signal-bar {
+  background-color: #4caf50;
+}
+
+.signal-good .signal-bar {
+  background-color: #8bc34a;
+}
+
+.signal-fair .signal-bar {
+  background-color: #ffc107;
+}
+
+.signal-poor .signal-bar {
+  background-color: #f44336;
+}
