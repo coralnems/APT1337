@@ -1,7 +1,7 @@
 # Web Framework
 Flask==2.3.3
-Flask-Cors==4.0.0
-Werkzeug==2.3.7
+Flask-Cors==4.0.2
+Werkzeug==3.0.6
 
 # Database
 SQLAlchemy==2.0.20
@@ -27,7 +27,7 @@ marshmallow-sqlalchemy==0.29.0
 
 # Utils
 python-dotenv==1.0.0
-gunicorn==21.2.0
-pillow==10.0.1
-pydantic==2.3.0
+gunicorn==23.0.0
+pillow==10.3.0
+pydantic==2.4.0
 email-validator==2.0.0
